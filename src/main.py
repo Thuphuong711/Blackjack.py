@@ -48,16 +48,17 @@ def game():
         print(f"Your cards: {user_cards_list} current score: {user_current_score}")
 
         print(f"Computer's first card: {computer_cards_list[0]}")
-        
+
+        # modify the code below because in my country, if there are two aces, it is still considered blackjack
         # check if the user or computer get blackjack without the need to get another card
-        if user_current_score == 21 and len(user_cards_list) == 2:
+        if user_cards_list.count(11) >= 1 and len(user_cards_list) == 2:
             print("You got a blackjack, you win!")
             print(f"computer's final hand: {computer_cards_list}, final score: {computer_current_score}")
             black_jack = True
             break
            
 
-        if computer_current_score == 21 and len(computer_cards_list) == 2:
+        if computer_cards_list.count(11) >= 1 and len(computer_cards_list) == 2:
             print(f"computer's final hand: {computer_cards_list}, final score: {computer_current_score}")
             print("Computer got a blackjack, you lose!")
             black_jack = True
